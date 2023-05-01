@@ -4,6 +4,7 @@ import cors from "cors";
 import loginUser from "./routes/loginUser.routes.js"
 import createUser from "./routes/createUser.routes.js"
 import profileProvider from "./routes/providers/profileProvider.routes.js"
+import createProvider from "./routes/providers/createProvider.routes.js";
 
 // config
 const app = express();
@@ -21,6 +22,7 @@ app.use("/register", createUser)
 app.use("/categoy", loginUser)
 
 // endpoints PROVIDERS
+app.use("/new/provider", createProvider)
 app.use("/profile/provider", profileProvider)
 
 // listen server on port 5000

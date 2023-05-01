@@ -1,4 +1,4 @@
-import provider from "../../routes/providers/provider.js";
+import provider from "../../routes/providers/providerData.js";
 import { Pool } from "../../config/conex.js";
 
 export const profileProvider = (req, res) => {
