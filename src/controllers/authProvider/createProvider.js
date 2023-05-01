@@ -12,7 +12,7 @@ export const createProvider = async (req, res) => {
     const especificacion = req.body.especificacion;
 
     const passwordHash = await bcrypt.hash(password, 10);
-    
+
     const query = Pool.query(
       "INSERT INTO providers (username, lastname, password, description, experience, imageReference, especificacion) VALUES (?,?,?,?,?,?,?)",
       [

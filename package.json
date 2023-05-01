@@ -19,5 +19,8 @@
     "nodemon": "^2.0.22",
     "sequelize": "^6.30.0"
   },
-  "keywords": []
+  "keywords": [],
+  "dependencies": {
+    "socket.io": "^4.6.1"
+  }
 }
