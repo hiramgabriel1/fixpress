@@ -1,12 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import AppNavigator from './navigation/AppNavigation';
+import AppNavigator from './src/navigation/AppNavigation';
 
 export default function App() {
   return (
     <NavigationContainer>
-      <AppNavigator  />
+     <AppNavigator />
     </NavigationContainer>
   );
 }
