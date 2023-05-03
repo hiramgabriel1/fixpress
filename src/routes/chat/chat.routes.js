@@ -5,9 +5,9 @@ import { showMessage } from "../../controllers/chat/chat.controllers.js";
 const router = Router();
 
 // show message
-router.get("/submit", submitMessage);
+router.post("/submit", submitMessage);
 
 // submit message
-router.post("/show", showMessage);
+router.get("/show", showMessage);
 
 export default router;

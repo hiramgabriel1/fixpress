@@ -17,20 +17,19 @@ const port = 5000;
 app.use(express.json());
 app.use(cors());
 
-// endpoints AUTH
+// endpoints AUTH users
 app.use("/auth", loginUser);
 app.use("/register", createUser);
 
-// endpoints CATEGORYS
-app.use("/categoy", loginUser);
-
-// endpoints PROVIDERS
+// endpoints CONTRATISTAS
 app.use("/new/provider", createProvider);
 app.use("/auth/provider", loginProvider);
-app.use("/profile/provider", profileProvider);
 
 // endpoints USERS PROFILE
 app.use("/user", profileUser);
+
+// endpoints CONTRATISTAS
+app.use("/profile/provider", profileProvider);
 
 // endpoints CHAT
 app.use("/chat", chat);
