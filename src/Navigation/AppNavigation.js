@@ -7,9 +7,9 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StyleSheet } from 'react-native';
 import HomeScreen from './HomeScreen';
-import Profile from '../Components/Profile';
-import Search from '../Components/Search';
-import Friends from '../Components/Friends';
+import Profile from '../Pages/Profile';
+import Search from '../Pages/Search';
+import Friends from '../Pages/Friends';
 
 
 const Tab = createMaterialTopTabNavigator();
