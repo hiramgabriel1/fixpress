@@ -8,6 +8,7 @@ import createProvider from "./routes/providers/createProvider.routes.js";
 import loginProvider from "./routes/providers/loginProvider.routes.js";
 import profileUser from "./routes/profileUser/profileUser.routes.js";
 import chat from "./routes/chat/chat.routes.js";
+import { getUsers } from "./controllers/auth/createUser.js";
 
 // config
 const app = express();
@@ -33,6 +34,8 @@ app.use("/profile/provider", profileProvider);
 
 // endpoints CHAT
 app.use("/chat", chat);
+
+app.use("/test", getUsers)
 
 // listen server on port 5000
 app.listen(port);

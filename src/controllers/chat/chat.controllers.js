@@ -42,10 +42,10 @@ export const showMessage = async (req, res) => {
   // toast a message new received
   res.send(validateMessageReceived());
 
-//   socket.on("chat message", function (msg) {
-//     var item = document.createElement("li");
-//     item.textContent = msg;
-//     messages.appendChild(item);
-//     window.scrollTo(0, document.body.scrollHeight);
-//   });
+  //   socket.on("chat message", function (msg) {
+  //     var item = document.createElement("li");
+  //     item.textContent = msg;
+  //     messages.appendChild(item);
+  //     window.scrollTo(0, document.body.scrollHeight);
+  //   });
 };

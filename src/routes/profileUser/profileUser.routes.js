@@ -3,6 +3,6 @@ import { showProfileData } from "../../controllers/profileUser/profileUser.contr
 
 const router = Router();
 
-router.get("/profile", showProfileData)
+router.get("/profile/:id", showProfileData)
 
 export default router;
