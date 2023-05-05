@@ -1,12 +1,14 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import OnBoarding from '../Components/OnBoarding';
 
 // create a component
 const Home = () => {
     return (
         <View style={styles.container}>
-            <Text>Home</Text>
+
+           <OnBoarding/>
             
         </View>
     );
