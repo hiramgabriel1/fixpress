@@ -1,6 +1,7 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet,Image, useWindowDimensions } from 'react-native';
+import { Flex,Box } from 'native-base';
 
 // create a component
 export default OnBoardingItem = ({ item }) => {
@@ -8,48 +9,35 @@ export default OnBoardingItem = ({ item }) => {
     const{width} = useWindowDimensions();
 
     return (
-        <View style={[ , {width}]}>
+
+        <Flex alignItems="center">
             <Image source={item.image} style={[styles.image, {width,resizeMode:'contain'}]} />
 
-            <View style={{ flex:0.3 }}>
                 <Text style={styles.title} >{ item.title} </Text>
-                <View style={styles.container} >
-                    <Text styles={styles.description } > {item.description} </Text>
-                </View>
-            </View>
-        </View>
+                <Text styles={styles.description } > {item.description} </Text>
+
+        </Flex>
     );
 };
 
 // define your styles
 const styles = StyleSheet.create({
     
-    container:{
-        flex:1,
-        justifyContent:'center',
-        alignItems:'center', 
-        width:60,  
-    },
-
     image:{
-        flex: 0.4,
-        justifyContent:'center',
-        marginTop:50,
+        flex: 0.8,
     },
     title:{
         fontWeight:'800',
         fontSize:28,
         marginBottom:10,
         color: '#493d8a',
-        textAlign:'center',
+      
     }, 
     description:{
         fontWeight:'300',
         color: '#6265b',
-        textAlign:'center',
-        paddingHorizontal:64,
         
-        
+
     }, 
 
 });

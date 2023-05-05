@@ -18,12 +18,8 @@ export default [
         description: 'EXplora que nesesitas ya mismo.',
         image: require('../img/image-product-3.jpg'),
     },
-    {
-        id: '4',
-        title: 'FixPress en tus manos',
-        description: 'EXplora que nesesitas ya mismo.',
-        image: require('../img/image-product-3.jpg'),
-    },
+   
+    
 
 
 ];

@@ -5,6 +5,7 @@ import Slides from './Slides';
 import OnBoardingItem from './OnBoardingItem';
 import Paginator from './Paginator';
 import NextButton from './NextButton';
+import { Flex,Box, Container, Center } from 'native-base';
 
 // create a component
 export default OnBoarding = () => {
@@ -19,16 +20,20 @@ export default OnBoarding = () => {
     const viewConfig= useRef({viewAreaCoveragePercentThreshold:50}).current;
 
     const scrollTo = ()=>{
-        if (currentIndex < Slides.length-1) {
-            SlidesRef.current.scrollToIndex({index:currentIndex+1});
+        if (currentIndex < Slides.length) {
+            setCurrentIndex(currentIndex+1);
+            SlidesRef.current.scrollToIndex({index:currentIndex});
+    
+            console.log(currentIndex);
         }else{
             console.log('ulitma vista');
+            setCurrentIndex(0);
         }
     };
 
     return (
-        <View style={styles.container}>
-            <View style={{flex: 3}} >
+        <Center width={'100%'} >
+            <Center height={'900'}  >
                 <FlatList 
                 data={Slides}  
                 renderItem={ ({item})=> <OnBoardingItem item={item} /> } 
@@ -47,17 +52,19 @@ export default OnBoarding = () => {
                 viewabilityConfig={viewConfig.current}
                 ref={SlidesRef}
                 />
-            </View>
-            <Paginator data={Slides} scrollX={scrollX} />
-            <NextButton scrollTo={scrollTo} />
-        </View>
+                <Box alignItems='center'  >
+                    <Paginator data={Slides} scrollX={scrollX} />
+                    <NextButton scrollTo={scrollTo} currentIndex={currentIndex} />
+                </Box>
+            </Center>
+        </Center>
     );
 };
 
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        
+        flex:1,
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',

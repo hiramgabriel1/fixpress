@@ -3,10 +3,15 @@ import React, { Component, useEffect,useRef } from 'react';
 import { View, Text, StyleSheet,TouchableOpacity,Animated, Touchable } from 'react-native';
 import { Svg,Circle,G } from 'react-native-svg';
 import { AntDesign } from '@expo/vector-icons';
+import { Button} from "native-base";
+import { useNavigation } from '@react-navigation/native';
+
+
 
 // create a component
-export default NextButton = ({scrollTo}  ) => {
+export default NextButton = ({scrollTo,currentIndex}  ) => {
 
+    const navigation=useNavigation();
     const size= 128;
     const strokeWidth=2;
     const center= size/2;
@@ -15,6 +20,8 @@ export default NextButton = ({scrollTo}  ) => {
     
     const progressAnimation = useRef( new Animated.Value(0)).current;
     const progressRef =useRef(null);
+
+    const handleNavigationLogin =()=> navigation.navigate("Login");
 
     const animation= (toValue)=>{
         return Animated.timing(progressAnimation, {
@@ -29,27 +36,22 @@ export default NextButton = ({scrollTo}  ) => {
 
     return (
         <View>
-             <Svg width={size} height={size}>
-            <G rotation='360' origin={center}  >
+            {
+                    currentIndex === 3?
+                    (<Button background={"purple.500"} onPress={handleNavigationLogin} 
+                         width={'150px'} size={'80px'}
+                    >
+                      <Text style={{color:'white'}} >Comenzar</Text>
 
-                <Circle stroke='#e6e7e8' 
-                ref={progressRef}
-                cx={center} cy={center} r={radius} strokeWidth={strokeWidth} />
+                    </Button>
+                    ):
 
-                <Circle stroke='#F4338f' 
-                cx={center} cy={center} r={radius} 
-                strokeWidth={strokeWidth}
-                strokeDasharray={circumference}
-                strokeDashoffset={circumference- (circumference * 50 )/100}
-                />
+                    ( <Button onPress={scrollTo} borderRadius={'50px'} backgroundColor={'purple.500'} size={'100px'}  >
+                        <AntDesign name="arrowright" size={46}  color={'#fff'} />
+                    </Button> )
+                
             
-
-             </G>
-            </Svg>
-          
-            <TouchableOpacity onPress={scrollTo} style={styles.button} activeOpacity={0.6} >
-                <AntDesign name="arrowright" size={36}  color={'#F4338f'} />
-            </TouchableOpacity>
+            }
         </View>
     );
 };
@@ -57,16 +59,21 @@ export default NextButton = ({scrollTo}  ) => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-     
+        
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
     },
     button:{
-        position:'absolute',
-        backgroundColor: '##f4338f',
+       height: 36 ,
+       width:36,
+        backgroundColor: '#a855f7',
         borderRadius: 100,
         padding: 45,
+    },
+    buttonComenzar:{
+        
+
     }
 });
 
