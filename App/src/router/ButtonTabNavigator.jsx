@@ -11,7 +11,10 @@ const color = (useColorMode === 'dark') ? '#4E4F49' : '#18202E';
 const ButtonTabNavigator = () => {
   return (
     <Tab.Navigator sceneContainerStyle={
-      { backgroundColor: bg }
+      {
+
+        backgroundColor: bg,
+      }
     }
       screenOptions={{
         tabBarStyle: {
@@ -23,7 +26,6 @@ const ButtonTabNavigator = () => {
         options={{
           title: '',
           tabBarIcon: () => <Feather name="home" size={24} color="white" />,
-          tabBarItemStyle: { border: 'none' }
         }}
       />
       <Tab.Screen name='Pendientes Tab'
@@ -31,14 +33,15 @@ const ButtonTabNavigator = () => {
         options={{
           title: '',
           tabBarIcon: () => <Octicons name="checklist" size={24} color="white" />
-        }} />
+        }}
+      />
       <Tab.Screen
         name='Notificaciones Tab'
         component={Home} options={{
           title: '',
           tabBarIcon: () => <Ionicons name="notifications-outline" size={24} color="white" />
         }} />
-    </Tab.Navigator>
+    </Tab.Navigator >
   );
 };
 
