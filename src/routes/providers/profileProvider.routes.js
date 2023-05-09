@@ -3,6 +3,6 @@ import { profileProvider } from "../../controllers/providers/profileProviders.co
 
 const router = Router();
 
-router.get("/profile", profileProvider)
+router.get("/profile/:id", profileProvider)
 
 export default router;

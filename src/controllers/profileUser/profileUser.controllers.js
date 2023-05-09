@@ -8,6 +8,7 @@ export const showProfileData = async (req, res) => {
     if (rows.length === 0) {
       res.status(404).send("No se ha encontrado al usuario");
     } else {
+      
       // render data profile
       res.send(rows[0]);
       const dataUser = [];
