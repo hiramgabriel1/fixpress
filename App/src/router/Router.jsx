@@ -8,9 +8,9 @@ const Stack = createStackNavigator();
 const Router = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen component={ButtonTabNavigator} name='Home' />
       <Stack.Screen component={Login} name='Login' />
       <Stack.Screen component={Register} name='Register' />
+      <Stack.Screen component={ButtonTabNavigator} name='Home' />
     </Stack.Navigator>
   );
 };
