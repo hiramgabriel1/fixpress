@@ -1,11 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import { Box, Button, Flex, Input, Link, Text, useColorMode } from 'native-base';
+import { useContext } from 'react';
 import { Controller, useForm } from "react-hook-form";
+import { UserContext } from '../../../context';
 
 const Login = () => {
 
   const navigation = useNavigation();
-
+  const { dispatch } = useContext(UserContext);
   const { control, handleSubmit, formState: { errors }, reset } = useForm({
     defaultValues: {
       email: "",
@@ -20,7 +22,11 @@ const Login = () => {
 
 
   const onSubmit = (data) => {
-    console.log(data)
+    dispatch({
+      type: "SET_SUCCESS",
+      payload: true
+    })
+    navigation.navigate('Home');
     reset();
   };
 

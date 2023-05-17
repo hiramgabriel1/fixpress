@@ -7,7 +7,7 @@ import {
 } from 'native-base';
 import React, { useState } from 'react';
 import { Controller, useForm } from "react-hook-form";
-
+import { setRegister } from '../intercepts/setRegister.intercepts';
 const Register = () => {
 
   const navigation = useNavigation();
@@ -20,7 +20,7 @@ const Register = () => {
 
   const { control, handleSubmit, formState: { errors }, reset } = useForm({
     defaultValues: {
-      name: "",
+      username: "",
       lastName: "",
       email: "",
       password: "",
@@ -29,7 +29,7 @@ const Register = () => {
   });
 
   const onSubmit = (data) => {
-    console.log(data)
+    setRegister(data);
     reset();
   };
   const numbersArray = [
@@ -69,9 +69,9 @@ const Register = () => {
               color={colorMode === 'light' ? 'gray.100' : 'gray.800'}
             />
           )}
-          name='name'
+          name='username'
         />
-        {errors.name && <Text color={'red.800'}>Error: El campo es requerido, si el error pereciste ingrese solo caracteres validos</Text>}
+        {errors.username && <Text color={'red.800'}>Error: El campo es requerido, si el error pereciste ingrese solo caracteres validos</Text>}
       </Box>
 
       <Box marginTop={"29px"} w={"82%"}>

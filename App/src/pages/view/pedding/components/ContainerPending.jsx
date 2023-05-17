@@ -1,23 +1,20 @@
+import { AntDesign } from '@expo/vector-icons';
 import { Center, Divider, Flex, Text, useColorMode } from 'native-base';
-
 const ContainerPending = ({ nameService, referenceCode, status, data, hours, services }) => {
 
   const { colorMode } = useColorMode();
 
-  const preIcon = services.filter(ico => {
-    if (nameService === ico.name) {
-      return ico.icon;
-    }
-  });
+  const preIcon = services.filter(ico => nameService === ico.name);
 
   const Icon = preIcon[0];
 
   return (
+
     <Center
       position="relative"
       backgroundColor={colorMode === 'light' ? 'dark.3000' : 'light.3000'}
       w={"400px"}
-      h={"200px"}
+      minH={"200px"}
       marginTop={"12px"}
       borderRadius={"4px"}
     >
@@ -25,12 +22,15 @@ const ContainerPending = ({ nameService, referenceCode, status, data, hours, ser
       <Flex flexDirection={"row"}>
         {Icon}
         <Flex>
-          <Text>{nameService}</Text>
-          <Text>Código de referencia : {referenceCode}</Text>
+          <Text fontSize={"23"}
+            fontWeight={"bold"}
+            color={colorMode === 'light' ? 'gray.100' : 'gray.800'}
+          >{nameService}</Text>
+          <Text color={colorMode === 'light' ? 'gray.100' : 'gray.800'}>Código de referencia : {referenceCode}</Text>
         </Flex>
       </Flex>
       <Divider marginTop={"12px"} marginBottom={"12px"} />
-      <Flex>
+      <Flex >
         <Center
           position={"absolute"}
           right={"-52%"}
@@ -42,11 +42,9 @@ const ContainerPending = ({ nameService, referenceCode, status, data, hours, ser
           <Text
             color={"green.300"}
           >{status}</Text>
-
         </Center>
-
-        <Text>Icono calendario</Text>
-        <Text>{hours} , {data}</Text>
+        <AntDesign name="calendar" size={24} color="white" />
+        <Text color={colorMode === 'light' ? 'gray.100' : 'gray.800'}>{hours} , {data}</Text>
       </Flex>
     </Center>
   )
