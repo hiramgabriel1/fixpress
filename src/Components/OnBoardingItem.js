@@ -11,7 +11,7 @@ export default OnBoardingItem = ({ item }) => {
     return (
 
         <Flex alignItems="center">
-            <Image source={item.image} style={[styles.image, {width,resizeMode:'contain'}]} />
+            <Image source={item.image} style={[styles.image, {width,resizeMode:'cover'}]} />
 
                 <Text style={styles.title} >{ item.title} </Text>
                 <Text styles={styles.description } > {item.description} </Text>
@@ -24,17 +24,17 @@ export default OnBoardingItem = ({ item }) => {
 const styles = StyleSheet.create({
     
     image:{
-        flex: 0.8,
+        flex: 0.9,
     },
     title:{
         fontWeight:'800',
-        fontSize:28,
-        marginBottom:10,
+        fontSize:35,
+        marginBottom:20,
         color: '#493d8a',
       
     }, 
     description:{
-        fontWeight:'300',
+        fontWeight:'250',
         color: '#6265b',
         
 

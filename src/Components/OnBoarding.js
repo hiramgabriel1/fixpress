@@ -14,26 +14,26 @@ export default OnBoarding = () => {
     const SlidesRef= useRef(null);
 
     const viewableItemsChanged = useRef(({ viewableitems }) => {
-        setCurrentIndex(viewableitems[1],index);
+        setCurrentIndex(viewableitems[5],index);
     }).current;
     
     const viewConfig= useRef({viewAreaCoveragePercentThreshold:50}).current;
 
     const scrollTo = ()=>{
-        if (currentIndex < Slides.length) {
+        if (currentIndex <= Slides.length) {
             setCurrentIndex(currentIndex+1);
             SlidesRef.current.scrollToIndex({index:currentIndex});
     
             console.log(currentIndex);
         }else{
             console.log('ulitma vista');
-            setCurrentIndex(0);
+            setCurrentIndex(1);
         }
     };
 
     return (
-        <Center width={'100%'} >
-            <Center height={'900'}  >
+        <View width={'100%'} >
+            <Center height={'700'} >
                 <FlatList 
                 data={Slides}  
                 renderItem={ ({item})=> <OnBoardingItem item={item} /> } 
@@ -57,7 +57,7 @@ export default OnBoarding = () => {
                     <NextButton scrollTo={scrollTo} currentIndex={currentIndex} />
                 </Box>
             </Center>
-        </Center>
+        </View>
     );
 };
 

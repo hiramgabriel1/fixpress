@@ -38,7 +38,7 @@ export default NextButton = ({scrollTo,currentIndex}  ) => {
         <View>
             {
                     currentIndex === 3?
-                    (<Button background={"purple.500"} onPress={handleNavigationLogin} 
+                    (<Button background={'#D17C65'} onPress={handleNavigationLogin} 
                          width={'150px'} size={'80px'}
                     >
                       <Text style={{color:'white'}} >Comenzar</Text>
@@ -46,7 +46,7 @@ export default NextButton = ({scrollTo,currentIndex}  ) => {
                     </Button>
                     ):
 
-                    ( <Button onPress={scrollTo} borderRadius={'50px'} backgroundColor={'purple.500'} size={'100px'}  >
+                    ( <Button onPress={scrollTo} borderRadius={'50px'} backgroundColor={'#FFBD59'} size={'100px'}  >
                         <AntDesign name="arrowright" size={46}  color={'#fff'} />
                     </Button> )
                 
