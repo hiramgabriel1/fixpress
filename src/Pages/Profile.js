@@ -6,6 +6,7 @@ import { Button } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import BottomSheetForm, {BottomSheetRefProps} from '../Components/BottomSheetForm';
+import {Constants} from 'expo';
 
 
 
@@ -197,7 +198,12 @@ const styles = StyleSheet.create({
         lineHeight:46,
         fontWeight:'bold',
         top:55,
-        left:10
+        left:10,
+        textShadowColor: 'rgba(0,0,0,0.75)',
+        textShadowOffset: {width:1,height:1},
+        textShadowRadius:20,
+        color: 'white'
+        
     },
     textH2:{
         position:'absolute',
@@ -206,7 +212,11 @@ const styles = StyleSheet.create({
         lineHeight:36,
         fontWeight:'bold',
         top:95,
-        left:10
+        left:10,
+        textShadowColor: 'rgba(0,0,0,0.75)',
+        textShadowOffset: {width:1,height:1},
+        textShadowRadius:20,
+        color: 'white'
     },
 
 });
