@@ -21,6 +21,7 @@ const Home = () => {
       <SectionSearch />
       <SectionServices />
       <SectionDiscount />
+
     </Flex>
   )
 }

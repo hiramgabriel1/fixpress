@@ -5,13 +5,16 @@ import {
   Input, Link,
   Select, Text, useColorMode
 } from 'native-base';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Controller, useForm } from "react-hook-form";
-import { setRegister } from '../intercepts/setRegister.intercepts';
+import { UserContext } from '../../../context';
+import users from '../../../data/users';
+
 const Register = () => {
 
   const navigation = useNavigation();
   const [numbers, setNumbers] = useState('');
+  const { dispatch } = useContext(UserContext);
   const { colorMode, toggleColorMode } = useColorMode();
   const handlerNavigateLogin = () => {
 
@@ -29,9 +32,15 @@ const Register = () => {
   });
 
   const onSubmit = (data) => {
-    setRegister(data);
+    users.push(data);
+    dispatch({
+      type: "SET_SUCCESS",
+      payload: true
+    })
+    navigation.navigate('Home');
     reset();
   };
+
   const numbersArray = [
     "+54",
     "+52",
